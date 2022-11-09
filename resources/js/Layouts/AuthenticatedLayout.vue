@@ -54,6 +54,11 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
+                                        <DropdownLink :href="route('profile.index')" method="get" as="button">
+                                            Profile
+                                        </DropdownLink>
+
+                                        <hr>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
                                             Log Out
                                         </DropdownLink>

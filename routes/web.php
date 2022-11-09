@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,6 +27,18 @@ Route::get('/', function () {
         ]
     );
 });
+
+// profile crud
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+
+Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
+Route::get('/profile/create', [ProfileController::class, 'create'])->name('profile.create');
+
+Route::put('/profile/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::delete('/profile/{profile}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
